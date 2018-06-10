@@ -7,25 +7,29 @@
 //
 
 import UIKit
-
+import SDWebImage
 class ListTableViewController: UITableViewController {
   
   //Cell Identifier
   let cellIdentifier: String = "CellIdentifier"
   var listViewModel: ListViewModel = ListViewModel()
   let myActivityIndicator = UIActivityIndicatorView()
+  let noRecordsLabel = UILabel()
   var navigationTitleText: String = "" {
     didSet {
       self.title = navigationTitleText
     }
   }
- 
+  var placeholderImage: UIImage = {
+    let placeholderImg = UIImage(named: "no_Image")
+    return placeholderImg!
+    
+  }()
   
   lazy var refreshCntrl: UIRefreshControl = {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(ListTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
     refreshControl.tintColor = UIColor.red
-    
     return refreshControl
   }()
   
@@ -34,12 +38,9 @@ class ListTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Webservice Call
-    self.callApiToDownloadTask()
-    
     //TableView Property setting
     tableView.estimatedRowHeight = 286
-    tableView.backgroundColor = UIColor.init(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0)
+//    tableView.backgroundColor = UIColor.init(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0)
     tableView.tableFooterView = UIView.init()
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.register(ListTableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
@@ -50,11 +51,17 @@ class ListTableViewController: UITableViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
     myActivityIndicator.center = self.view.center
     myActivityIndicator.hidesWhenStopped = true
-    myActivityIndicator.activityIndicatorViewStyle = .whiteLarge
+    myActivityIndicator.activityIndicatorViewStyle = .gray
     self.view.addSubview(myActivityIndicator)
     myActivityIndicator.startAnimating()
+    
+    
+    // Webservice Call
+    self.callApiToDownloadTask()
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -65,18 +72,32 @@ class ListTableViewController: UITableViewController {
   
   //MARK: - API Calls
   func callApiToDownloadTask() {
-    let urlString = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
-    let urlRequest = URLRequest(url: urlString!)
-    listViewModel.fetchJsonAndSaving(urlRequest: urlRequest, completion: {(successOrFailure,responseObject) in
-      
-      if successOrFailure{
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-          self.navigationTitleText = responseObject!["title"] as! String
+    if Reachability.isConnectedToNetwork(){
+      let urlString = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
+      let urlRequest = URLRequest(url: urlString!)
+      listViewModel.fetchJsonAndSaving(urlRequest: urlRequest, completion: {(successOrFailure,responseObject) in
+        
+        if successOrFailure{
+          DispatchQueue.main.async {
+            print(responseObject!)
+            self.tableView.reloadData()
+            self.navigationTitleText = responseObject!["title"] as! String
+            self.myActivityIndicator.stopAnimating()
+          }
+        }else{
+          //Failure Case
           self.myActivityIndicator.stopAnimating()
         }
-      }
-    })
+        
+      })
+    }else{
+      self.myActivityIndicator.stopAnimating()
+      let alertController = UIAlertController(title: "", message: "No Internet connection.Please check your network connection", preferredStyle: .alert)
+      let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alertController.addAction(defaultAction)
+      present(alertController, animated: true, completion: nil)
+    }
+    
   }
   //MARK: - Handle Refresh
   @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -92,7 +113,7 @@ class ListTableViewController: UITableViewController {
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return 5
+      return  listViewModel.numberOfRowsInSection()
   }
 
   
@@ -102,11 +123,19 @@ class ListTableViewController: UITableViewController {
     if cell == nil {
       cell = ListTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifier)
     }
-    cell?.textLabel?.text = "sample"
-
-
-    return cell!
+    
+    let model = listViewModel.itemsArray[indexPath.row] as ListModel
+    if let imgURLString = model.imageHref{
+      let imageUrl = URL(string: imgURLString)
+      cell?.imgView.sd_setShowActivityIndicatorView(true)
+      cell?.imgView.sd_setIndicatorStyle(.gray)
+      cell?.imgView.sd_setImage(with: imageUrl, placeholderImage:placeholderImage, options:.forceTransition, completed: nil)
+      cell?.titleLabel.text = listViewModel.itemsArray[indexPath.row].title
+      cell?.descriptionLabel.text = listViewModel.itemsArray[indexPath.row].description
+      cell?.selectionStyle = .none
+      return cell!
+    }
+    
+    return UITableViewCell()
   }
- 
-
 }

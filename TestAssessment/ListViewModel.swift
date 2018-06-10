@@ -10,7 +10,7 @@ import UIKit
 
 class ListViewModel: NSObject {
   
-  var itemsArray = [TableViewModel]()
+  var itemsArray = [ListModel]()
   
   func fetchJsonAndSaving(urlRequest: URLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()){
     
@@ -21,7 +21,7 @@ class ListViewModel: NSObject {
           
           completion(true,responseObject)
           for item in items{
-            let model = TableViewModel(dictionary: item as NSDictionary )
+            let model = ListModel(dictionary: item as NSDictionary )
             self.itemsArray.append(model)
           }
         }

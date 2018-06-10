@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public struct TableViewModel {
+public struct ListModel {
   
   public var imageHref: String?
   public var title: String?

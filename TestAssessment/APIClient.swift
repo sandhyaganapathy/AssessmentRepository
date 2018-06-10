@@ -37,7 +37,6 @@ class APIClient: NSObject {
           }
         }
       })
-      
       task.resume()
       
     }else{
