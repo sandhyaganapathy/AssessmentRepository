@@ -47,7 +47,6 @@
 		18BF08AC20CC1F6C005EEC0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18BF08B320CC1F6E005EEC0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18BF08B620CC1F6E005EEC0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		18BF08B820CC1F6E005EEC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BF08BD20CC1F6E005EEC0F /* TestAssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BF08C120CC1F6E005EEC0F /* TestAssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssessmentTests.swift; sourceTree = "<group>"; };
 		18BF08C320CC1F6E005EEC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 				18BF08E620CCD6BB005EEC0F /* SupportingClasses */,
 				18BF08B320CC1F6E005EEC0F /* Assets.xcassets */,
 				18BF08B520CC1F6E005EEC0F /* LaunchScreen.storyboard */,
-				18BF08B820CC1F6E005EEC0F /* Info.plist */,
 			);
 			path = TestAssessment;
 			sourceTree = "<group>";
