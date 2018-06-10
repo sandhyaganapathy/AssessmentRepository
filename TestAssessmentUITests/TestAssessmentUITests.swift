@@ -2,7 +2,7 @@
 //  TestAssessmentUITests.swift
 //  TestAssessmentUITests
 //
-//  Created by Vinoth Ganapathy on 09/06/18.
+//  Created by sandhya ganapathy on 09/06/18.
 //  Copyright © 2018 Gee Vee. All rights reserved.
 //
 

@@ -2,16 +2,16 @@
 //  ListModel.swift
 //  TestAssessment
 //
-//  Created by Vinoth Ganapathy on 10/06/18.
+//  Created by sandhya ganapathy on 10/06/18.
 //  Copyright © 2018 Gee Vee. All rights reserved.
 //
 
 import Foundation
-public struct ListModel {
+struct ListModel {
   
-  public var imageHref: String?
-  public var title: String?
-  public var description: String?
+  var imageHref: String?
+  var title: String?
+  var description: String?
   
   init(dictionary: NSDictionary) {
     

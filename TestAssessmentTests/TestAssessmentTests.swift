@@ -2,7 +2,7 @@
 //  TestAssessmentTests.swift
 //  TestAssessmentTests
 //
-//  Created by Vinoth Ganapathy on 09/06/18.
+//  Created by sandhya ganapathy on 09/06/18.
 //  Copyright © 2018 Gee Vee. All rights reserved.
 //
 
@@ -22,54 +22,72 @@ class TestAssessmentTests: XCTestCase {
   }
   // Asynchronous test: success fast, failure slow
   func testValidCallToGetsHTTPStatusCode200() {
-    // given
-    let url = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
-    // 1
-    let promise = expectation(description: "Status code: 200")
-    
-    // when
-    let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
-      // then
-      if let error = error {
-        XCTFail("Error: \(error.localizedDescription)")
-        return
-      } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-        if statusCode == 200 {
-          // 2
-          promise.fulfill()
-        } else {
-          XCTFail("Status code: \(statusCode)")
+    if Reachability.isConnectedToNetwork(){
+      // given
+      let url = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
+      // 1
+      let promise = expectation(description: "Status code: 200")
+      
+      // when
+      let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+        // then
+        if let error = error {
+          XCTFail("Error: \(error.localizedDescription)")
+          return
+        } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+          if statusCode == 200 {
+            // 2
+            promise.fulfill()
+          } else {
+            XCTFail("Status code: \(statusCode)")
+          }
         }
       }
+      dataTask.resume()
+      // 3
+      waitForExpectations(timeout: 5, handler: nil)
     }
-    dataTask.resume()
-    // 3
-    waitForExpectations(timeout: 5, handler: nil)
+    
   }
   
   // Asynchronous test: faster fail
   func testCallToTaskCompletes() {
-    // given
-    let url = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
-    // 1
-    let promise = expectation(description: "Completion handler invoked")
-    var statusCode: Int?
-    var responseError: Error?
-    
-    // when
-    let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
-      statusCode = (response as? HTTPURLResponse)?.statusCode
-      responseError = error
-      // 2
-      promise.fulfill()
+    if Reachability.isConnectedToNetwork(){
+      // given
+      let url = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
+      // 1
+      let promise = expectation(description: "Completion handler invoked")
+      var statusCode: Int?
+      var responseError: Error?
+      
+      // when
+      let dataTask = sessionUnderTest.dataTask(with: url!) { data, response, error in
+        statusCode = (response as? HTTPURLResponse)?.statusCode
+        responseError = error
+        // 2
+        promise.fulfill()
+      }
+      dataTask.resume()
+      // 3
+      waitForExpectations(timeout: 5, handler: nil)
+      
+      // then
+      XCTAssertNil(responseError)
+      XCTAssertEqual(statusCode, 200)
     }
-    dataTask.resume()
-    // 3
-    waitForExpectations(timeout: 5, handler: nil)
     
-    // then
-    XCTAssertNil(responseError)
-    XCTAssertEqual(statusCode, 200)
+  }
+  
+  //Checking Internet Connection
+  func testInternetConnection() {
+    if Reachability.isConnectedToNetwork(){
+      XCTAssertTrue(Reachability.isConnectedToNetwork(), "Network connection Available")
+      XCTAssertFalse(!Reachability.isConnectedToNetwork(), "No Network connection Available")
+    }else{
+      XCTAssertTrue(!Reachability.isConnectedToNetwork(), "No Network connection Available")
+      XCTAssertFalse(Reachability.isConnectedToNetwork(), "Network connection Available")
+      
+    }
   }
   
   func testExample() {
