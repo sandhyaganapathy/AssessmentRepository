@@ -21,7 +21,7 @@ class TestAssessmentTests: XCTestCase {
     super.tearDown()
   }
   // Asynchronous test: success fast, failure slow
-  func testValidCallToiTunesGetsHTTPStatusCode200() {
+  func testValidCallToGetsHTTPStatusCode200() {
     // given
     let url = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
     // 1
@@ -48,7 +48,7 @@ class TestAssessmentTests: XCTestCase {
   }
   
   // Asynchronous test: faster fail
-  func testCallToiTunesCompletes() {
+  func testCallToTaskCompletes() {
     // given
     let url = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
     // 1

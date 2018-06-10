@@ -12,6 +12,8 @@ class ListViewModel: NSObject {
   
   var itemsArray = [ListModel]()
   
+  //MARK: - APIClient call
+  
   func fetchJsonAndSaving(urlRequest: URLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()){
     
     APIClient.client.fetchDataTask(urlRequest: urlRequest, completion:{ (successOrFailure,responseObject) in

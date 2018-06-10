@@ -18,8 +18,6 @@ class APIClient: NSObject {
       
       
       let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-        // do stuff with response, data & error here
-        
         if let d = data {
           if let value = String(data: d, encoding: String.Encoding.ascii) {
             

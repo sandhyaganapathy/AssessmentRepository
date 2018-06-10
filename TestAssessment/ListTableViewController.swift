@@ -12,9 +12,10 @@ class ListTableViewController: UITableViewController {
   
   //Cell Identifier
   let cellIdentifier: String = "CellIdentifier"
+  
   var listViewModel: ListViewModel = ListViewModel()
   let myActivityIndicator = UIActivityIndicatorView()
-  let noRecordsLabel = UILabel()
+  
   var navigationTitleText: String = "" {
     didSet {
       self.title = navigationTitleText
@@ -33,14 +34,11 @@ class ListTableViewController: UITableViewController {
     return refreshControl
   }()
   
-
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     //TableView Property setting
     tableView.estimatedRowHeight = 286
-//    tableView.backgroundColor = UIColor.init(red: 215/255, green: 215/255, blue: 215/255, alpha: 1.0)
     tableView.tableFooterView = UIView.init()
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.register(ListTableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
@@ -52,12 +50,12 @@ class ListTableViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
+    // Activity Indicator
     myActivityIndicator.center = self.view.center
     myActivityIndicator.hidesWhenStopped = true
     myActivityIndicator.activityIndicatorViewStyle = .gray
     self.view.addSubview(myActivityIndicator)
     myActivityIndicator.startAnimating()
-    
     
     // Webservice Call
     self.callApiToDownloadTask()
@@ -67,10 +65,10 @@ class ListTableViewController: UITableViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     
-    // Dispose of any resources that can be recreated.
   }
   
   //MARK: - API Calls
+  
   func callApiToDownloadTask() {
     if Reachability.isConnectedToNetwork(){
       let urlString = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
@@ -99,7 +97,9 @@ class ListTableViewController: UITableViewController {
     }
     
   }
+  
   //MARK: - Handle Refresh
+  
   @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
     listViewModel.itemsArray.removeAll()
     self.callApiToDownloadTask()

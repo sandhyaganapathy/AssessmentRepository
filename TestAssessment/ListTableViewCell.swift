@@ -12,9 +12,9 @@ import Masonry
 class ListTableViewCell: UITableViewCell {
 
   var didSetupConstraints = false
-  var imageSize: CGSize!
   
-  let titleLabel: UILabel = {
+  // UIElements
+    let titleLabel: UILabel = {
     let titleLabel = UILabel()
     titleLabel.numberOfLines = 0
     titleLabel.lineBreakMode = .byClipping
@@ -42,10 +42,10 @@ class ListTableViewCell: UITableViewCell {
     return imgView
   }()
   
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
-    
     
   }
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -53,18 +53,18 @@ class ListTableViewCell: UITableViewCell {
     contentView.addSubview(imgView)
     contentView.addSubview(titleLabel)
     contentView.addSubview(descriptionLabel)
-    imageSize = CGSize(width: 100, height: 100)
     self.setNeedsUpdateConstraints()
-    
     
   }
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    // Configure the view for the selected state
+  }
+  //MARK: - Update Constraints
   override func updateConstraints() {
-    
-    
     if (!didSetupConstraints) {
       imgView.mas_makeConstraints({ make in
         make?.top.equalTo()(10)
@@ -88,13 +88,6 @@ class ListTableViewCell: UITableViewCell {
     }
     
     super.updateConstraints()
-  }
-  
-  
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-    
-    // Configure the view for the selected state
   }
 
 }
