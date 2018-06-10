@@ -14,6 +14,10 @@
 		18BF08CD20CC1F6E005EEC0F /* TestAssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08CC20CC1F6E005EEC0F /* TestAssessmentUITests.swift */; };
 		18BF08DB20CC23BD005EEC0F /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08DA20CC23BD005EEC0F /* ListTableViewController.swift */; };
 		18BF08DD20CC2B20005EEC0F /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08DC20CC2B20005EEC0F /* ListTableViewCell.swift */; };
+		18BF08DF20CCCE5B005EEC0F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08DE20CCCE5B005EEC0F /* APIClient.swift */; };
+		18BF08E120CCCF24005EEC0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E020CCCF24005EEC0F /* Constants.swift */; };
+		18BF08E320CCCF83005EEC0F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E220CCCF83005EEC0F /* ListModel.swift */; };
+		18BF08E520CCCF9E005EEC0F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */; };
 		534F6E2F097D9A806182E421 /* Pods_TestAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AB7BC1B98A295B838F99DF /* Pods_TestAssessment.framework */; };
 		5B19DA333742FAF1C3AC5764 /* Pods_TestAssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A209E9ECFD36EA60BEC924B8 /* Pods_TestAssessmentUITests.framework */; };
 		63503094276415FC1436DC34 /* Pods_TestAssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC3C1884AB792541A824D68 /* Pods_TestAssessmentTests.framework */; };
@@ -51,6 +55,10 @@
 		18BF08CE20CC1F6E005EEC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18BF08DA20CC23BD005EEC0F /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		18BF08DC20CC2B20005EEC0F /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		18BF08DE20CCCE5B005EEC0F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		18BF08E020CCCF24005EEC0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18BF08E220CCCF83005EEC0F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		33B2B4E12FE272EFC668E7F7 /* Pods-TestAssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessmentTests/Pods-TestAssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		77C83CD9747D98248831BF81 /* Pods-TestAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessment/Pods-TestAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		7AE90D1DAAE4C587A855AC36 /* Pods-TestAssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessmentTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessmentTests/Pods-TestAssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +128,10 @@
 				18BF08B820CC1F6E005EEC0F /* Info.plist */,
 				18BF08DA20CC23BD005EEC0F /* ListTableViewController.swift */,
 				18BF08DC20CC2B20005EEC0F /* ListTableViewCell.swift */,
+				18BF08DE20CCCE5B005EEC0F /* APIClient.swift */,
+				18BF08E020CCCF24005EEC0F /* Constants.swift */,
+				18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */,
+				18BF08E220CCCF83005EEC0F /* ListModel.swift */,
 			);
 			path = TestAssessment;
 			sourceTree = "<group>";
@@ -376,9 +388,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BF08E120CCCF24005EEC0F /* Constants.swift in Sources */,
 				18BF08AD20CC1F6C005EEC0F /* AppDelegate.swift in Sources */,
+				18BF08E520CCCF9E005EEC0F /* ListViewModel.swift in Sources */,
 				18BF08DB20CC23BD005EEC0F /* ListTableViewController.swift in Sources */,
+				18BF08E320CCCF83005EEC0F /* ListModel.swift in Sources */,
 				18BF08DD20CC2B20005EEC0F /* ListTableViewCell.swift in Sources */,
+				18BF08DF20CCCE5B005EEC0F /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +562,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestAssessment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.app.TestAssessment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -561,7 +580,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestAssessment/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.app.TestAssessment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -577,7 +599,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestAssessmentTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.app.TestAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -594,7 +620,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestAssessmentTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.app.TestAssessmentTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -610,7 +640,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestAssessmentUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.app.TestAssessmentUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -626,7 +660,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TestAssessmentUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.company.app.TestAssessmentUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
