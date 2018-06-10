@@ -124,17 +124,17 @@
 		18BF08AB20CC1F6C005EEC0F /* TestAssessment */ = {
 			isa = PBXGroup;
 			children = (
-				18BF08E620CCD6BB005EEC0F /* SupportingClasses */,
 				18BF08AC20CC1F6C005EEC0F /* AppDelegate.swift */,
+				18BF08EB20CD0BDF005EEC0F /* Network */,
+				18BF08EC20CD0BF3005EEC0F /* Utils */,
+				18BF08ED20CD0C36005EEC0F /* View */,
+				18BF08EE20CD0C46005EEC0F /* ViewModel */,
+				18BF08EF20CD0C51005EEC0F /* Model */,
+				18BF08F020CD0C63005EEC0F /* CustomViews */,
+				18BF08E620CCD6BB005EEC0F /* SupportingClasses */,
 				18BF08B320CC1F6E005EEC0F /* Assets.xcassets */,
 				18BF08B520CC1F6E005EEC0F /* LaunchScreen.storyboard */,
 				18BF08B820CC1F6E005EEC0F /* Info.plist */,
-				18BF08DA20CC23BD005EEC0F /* ListTableViewController.swift */,
-				18BF08DC20CC2B20005EEC0F /* ListTableViewCell.swift */,
-				18BF08DE20CCCE5B005EEC0F /* APIClient.swift */,
-				18BF08E020CCCF24005EEC0F /* Constants.swift */,
-				18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */,
-				18BF08E220CCCF83005EEC0F /* ListModel.swift */,
 			);
 			path = TestAssessment;
 			sourceTree = "<group>";
@@ -171,6 +171,54 @@
 				18BF08E820CCD6FF005EEC0F /* Reachability.swift */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		18BF08EB20CD0BDF005EEC0F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08DE20CCCE5B005EEC0F /* APIClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		18BF08EC20CD0BF3005EEC0F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08E020CCCF24005EEC0F /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		18BF08ED20CD0C36005EEC0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08DA20CC23BD005EEC0F /* ListTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18BF08EE20CD0C46005EEC0F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18BF08EF20CD0C51005EEC0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08E220CCCF83005EEC0F /* ListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18BF08F020CD0C63005EEC0F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08DC20CC2B20005EEC0F /* ListTableViewCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		1E9A9ADA186D85D85915F3C7 /* Pods */ = {
