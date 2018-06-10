@@ -18,6 +18,7 @@
 		18BF08E120CCCF24005EEC0F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E020CCCF24005EEC0F /* Constants.swift */; };
 		18BF08E320CCCF83005EEC0F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E220CCCF83005EEC0F /* ListModel.swift */; };
 		18BF08E520CCCF9E005EEC0F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */; };
+		18BF08E920CCD6FF005EEC0F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E820CCD6FF005EEC0F /* Reachability.swift */; };
 		534F6E2F097D9A806182E421 /* Pods_TestAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AB7BC1B98A295B838F99DF /* Pods_TestAssessment.framework */; };
 		5B19DA333742FAF1C3AC5764 /* Pods_TestAssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A209E9ECFD36EA60BEC924B8 /* Pods_TestAssessmentUITests.framework */; };
 		63503094276415FC1436DC34 /* Pods_TestAssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABC3C1884AB792541A824D68 /* Pods_TestAssessmentTests.framework */; };
@@ -59,6 +60,7 @@
 		18BF08E020CCCF24005EEC0F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		18BF08E220CCCF83005EEC0F /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		18BF08E820CCD6FF005EEC0F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		33B2B4E12FE272EFC668E7F7 /* Pods-TestAssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessmentTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessmentTests/Pods-TestAssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		77C83CD9747D98248831BF81 /* Pods-TestAssessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessment/Pods-TestAssessment.debug.xcconfig"; sourceTree = "<group>"; };
 		7AE90D1DAAE4C587A855AC36 /* Pods-TestAssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessmentTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessmentTests/Pods-TestAssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		18BF08AB20CC1F6C005EEC0F /* TestAssessment */ = {
 			isa = PBXGroup;
 			children = (
+				18BF08E620CCD6BB005EEC0F /* SupportingClasses */,
 				18BF08AC20CC1F6C005EEC0F /* AppDelegate.swift */,
 				18BF08B320CC1F6E005EEC0F /* Assets.xcassets */,
 				18BF08B520CC1F6E005EEC0F /* LaunchScreen.storyboard */,
@@ -152,6 +155,22 @@
 				18BF08CE20CC1F6E005EEC0F /* Info.plist */,
 			);
 			path = TestAssessmentUITests;
+			sourceTree = "<group>";
+		};
+		18BF08E620CCD6BB005EEC0F /* SupportingClasses */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08E720CCD6FF005EEC0F /* Reachability */,
+			);
+			path = SupportingClasses;
+			sourceTree = "<group>";
+		};
+		18BF08E720CCD6FF005EEC0F /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				18BF08E820CCD6FF005EEC0F /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 		1E9A9ADA186D85D85915F3C7 /* Pods */ = {
@@ -394,6 +413,7 @@
 				18BF08DB20CC23BD005EEC0F /* ListTableViewController.swift in Sources */,
 				18BF08E320CCCF83005EEC0F /* ListModel.swift in Sources */,
 				18BF08DD20CC2B20005EEC0F /* ListTableViewCell.swift in Sources */,
+				18BF08E920CCD6FF005EEC0F /* Reachability.swift in Sources */,
 				18BF08DF20CCCE5B005EEC0F /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

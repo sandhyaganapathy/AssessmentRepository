@@ -12,13 +12,22 @@ class ListTableViewController: UITableViewController {
   
   //Cell Identifier
   let cellIdentifier: String = "CellIdentifier"
+  var listViewModel: ListViewModel = ListViewModel()
   let myActivityIndicator = UIActivityIndicatorView()
   var navigationTitleText: String = "" {
     didSet {
       self.title = navigationTitleText
     }
   }
+ 
   
+  lazy var refreshCntrl: UIRefreshControl = {
+    let refreshControl = UIRefreshControl()
+    refreshControl.addTarget(self, action: #selector(ListTableViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+    refreshControl.tintColor = UIColor.red
+    
+    return refreshControl
+  }()
   
 
   
@@ -35,6 +44,8 @@ class ListTableViewController: UITableViewController {
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.register(ListTableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    
+    self.tableView.addSubview(self.refreshCntrl)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -54,8 +65,24 @@ class ListTableViewController: UITableViewController {
   
   //MARK: - API Calls
   func callApiToDownloadTask() {
-    // Api call
-    
+    let urlString = URL(string: Constants.URLStrings.WEB_SERVICE_URL_STRING)
+    let urlRequest = URLRequest(url: urlString!)
+    listViewModel.fetchJsonAndSaving(urlRequest: urlRequest, completion: {(successOrFailure,responseObject) in
+      
+      if successOrFailure{
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+          self.navigationTitleText = responseObject!["title"] as! String
+          self.myActivityIndicator.stopAnimating()
+        }
+      }
+    })
+  }
+  //MARK: - Handle Refresh
+  @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+    listViewModel.itemsArray.removeAll()
+    self.callApiToDownloadTask()
+    refreshControl.endRefreshing()
   }
 
   // MARK: - Table view data source
