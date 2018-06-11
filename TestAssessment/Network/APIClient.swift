@@ -10,6 +10,7 @@ import UIKit
 
 class APIClient: NSObject {
   static let client = APIClient()
+  // MARK: - URLSession Calls
   func fetchDataTask(urlRequest: URLRequest, completion: @escaping (_ success: Bool, _ object: AnyObject?) -> ()) {
     if Reachability.isConnectedToNetwork() {
       let config = URLSessionConfiguration.default

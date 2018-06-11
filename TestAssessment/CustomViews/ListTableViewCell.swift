@@ -10,7 +10,6 @@ import UIKit
 import Masonry
 
 class ListTableViewCell: UITableViewCell {
-
   var didSetupConstraints = false
   // UIElements
     let titleLabel: UILabel = {
@@ -37,10 +36,7 @@ class ListTableViewCell: UITableViewCell {
     imgView.contentMode = .scaleAspectFit
     return imgView
   }()
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
-  }
+  // MARK: - View Related Methods
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     contentView.addSubview(imgView)
@@ -50,10 +46,6 @@ class ListTableViewCell: UITableViewCell {
   }
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
-  }
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-    // Configure the view for the selected state
   }
   // MARK: - Update Constraints
   override func updateConstraints() {
@@ -78,5 +70,4 @@ class ListTableViewCell: UITableViewCell {
     }
     super.updateConstraints()
   }
-
 }

@@ -12,6 +12,7 @@ import XCTest
 class TestAssessmentTests: XCTestCase {
   var sessionUnderTest: URLSession!
   let viewController = ListTableViewController()
+  // MARK: - Set Up
   override func setUp() {
     super.setUp()
     let listViewController = ListTableViewController()
@@ -59,7 +60,7 @@ class TestAssessmentTests: XCTestCase {
     let expectedReuseIdentifier = self.viewController.cellIdentifier
     XCTAssertTrue(cell?.reuseIdentifier == expectedReuseIdentifier, "Table does not create reusable cells")
   }
-  // MARK: - Asynchronous test
+  // MARK: - Asynchronous URLSession test case
   func testValidCallToGetsHTTPStatusCode200() {
     if Reachability.isConnectedToNetwork() {
       let url = URL(string: Constants.URLStrings.webServiceUrlString)
@@ -109,12 +110,6 @@ class TestAssessmentTests: XCTestCase {
     if !Reachability.isConnectedToNetwork() {
       XCTAssertTrue(!Reachability.isConnectedToNetwork(), "Network connection Available")
       XCTAssertFalse(Reachability.isConnectedToNetwork(), "No Network connection Available")
-    }
-  }
-  func testPerformanceExample() {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
     }
   }
 }

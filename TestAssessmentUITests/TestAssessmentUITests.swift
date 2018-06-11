@@ -7,30 +7,90 @@
 //
 
 import XCTest
-
 class TestAssessmentUITests: XCTestCase {
-  
+  let app = XCUIApplication()
   override func setUp() {
     super.setUp()
-    
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-    // In UI tests it is usually best to stop immediately when a failure occurs.
     continueAfterFailure = false
-    // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
     XCUIApplication().launch()
-    
-    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
   }
-  
   override func tearDown() {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     super.tearDown()
   }
-  
-  func testExample() {
-    // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+  // MARK: - Test Methods
+  //Test app when there is no internet connection
+  func testAppInOfflineMode() {
+    if !Reachability.isConnectedToNetwork() {
+      offlineMode()
+    } else {
+      onlineMode()
+    }
+    sleep(2)
   }
-  
+  //Test app when there is internet connection
+  func testAppInOnlineMode() {
+    if Reachability.isConnectedToNetwork() {
+      onlineMode()
+    } else {
+      offlineMode()
+    }
+    sleep(2)
+  }
+  //Test PullToRefresh, when there is internet connection
+  func testPullToRefreshOnline() {
+    if Reachability.isConnectedToNetwork() {
+      pullToRefreshWithInternetConnection()
+    }
+    sleep(2)
+  }
+  //Test PullToRefresh, when there is no internet connection
+  func testPullToRefreshOffline() {
+    if !Reachability.isConnectedToNetwork() {
+      pullToRefreshWithoutInternetConnection()
+    }
+    sleep(2)
+  }
+  // MARK: - Methods
+  func onlineMode() {
+    let table = app.tables.element
+    waitForElementToAppear(table)
+    XCTAssertTrue(table.exists)
+    let cell = table.cells.element(boundBy: 0)
+    if cell.exists {
+      XCTAssertTrue(cell.exists)
+    }
+  }
+  func offlineMode() {
+    let okButton = app.alerts.buttons["OK"]
+    okButton.tap()
+  }
+  func pullToRefreshWithInternetConnection() {
+    let table = app.tables.element
+    waitForElementToAppear(table)
+    XCTAssertTrue(table.exists)
+    let cell = table.cells.element(boundBy: 0)
+    if cell.exists {
+      XCTAssertTrue(cell.exists)
+      let firstCell = cell
+      let start = firstCell.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+      let finish = firstCell.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 6))
+      start.press(forDuration: 0, thenDragTo: finish)
+    }
+  }
+  func pullToRefreshWithoutInternetConnection() {
+    let okButton = app.alerts.buttons["OK"]
+    okButton.tap()
+    let emptyListTable = app.tables["Empty list"]
+    if emptyListTable.exists {
+      app.tables["Empty list"].swipeDown()
+      if app.alerts.buttons["OK"].exists {
+        app.alerts.buttons["OK"].tap()
+      }
+    }
+  }
+  func waitForElementToAppear(_ element: XCUIElement) {
+    let existsPredicate = NSPredicate(format: "exists == true")
+    expectation(for: existsPredicate, evaluatedWith: element, handler: nil)
+    waitForExpectations(timeout: 5, handler: nil)
+  }
 }

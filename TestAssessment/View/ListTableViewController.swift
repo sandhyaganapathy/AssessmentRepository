@@ -30,6 +30,7 @@ class ListTableViewController: UITableViewController {
     refreshControl.tintColor = UIColor.red
     return refreshControl
   }()
+  // MARK: - ViewController Methods
   override func viewDidLoad() {
     super.viewDidLoad()
     //TableView Property setting
@@ -39,23 +40,17 @@ class ListTableViewController: UITableViewController {
     tableView.register(ListTableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
     tableView.translatesAutoresizingMaskIntoConstraints = false
     self.tableView.addSubview(self.refreshCntrl)
-  }
-   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-     // Activity Indicator
+    // Activity Indicator
     myActivityIndicator.center = self.view.center
     myActivityIndicator.hidesWhenStopped = true
     myActivityIndicator.activityIndicatorViewStyle = .gray
     self.view.addSubview(myActivityIndicator)
     myActivityIndicator.startAnimating()
     // Webservice Call
-    self.callApiToDownloadTask()
-  }
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
+    self.callApiToGetJSONData()
   }
   // MARK: - API Calls
-  func callApiToDownloadTask() {
+  func callApiToGetJSONData() {
     if Reachability.isConnectedToNetwork() {
       let urlString = URL(string: Constants.URLStrings.webServiceUrlString)
       let urlRequest = URLRequest(url: urlString!)
@@ -85,7 +80,7 @@ class ListTableViewController: UITableViewController {
   // MARK: - Handle Refresh
   @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
     listViewModel.itemsArray.removeAll()
-    self.callApiToDownloadTask()
+    self.callApiToGetJSONData()
     refreshControl.endRefreshing()
   }
 

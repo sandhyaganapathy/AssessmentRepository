@@ -22,11 +22,10 @@ class ListViewModel: NSObject {
             self.itemsArray.append(model)
           }
         }
-      } else {
-        //Failure Case
       }
     })
   }
+  // MARK: - To Get Row Count
   func numberOfRowsInSection() -> Int {
     return itemsArray.count
   }
