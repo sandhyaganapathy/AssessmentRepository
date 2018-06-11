@@ -19,9 +19,11 @@
 		18BF08E320CCCF83005EEC0F /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E220CCCF83005EEC0F /* ListModel.swift */; };
 		18BF08E520CCCF9E005EEC0F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E420CCCF9E005EEC0F /* ListViewModel.swift */; };
 		18BF08E920CCD6FF005EEC0F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E820CCD6FF005EEC0F /* Reachability.swift */; };
-		18BF093120CD33BA005EEC0F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BF093020CD33BA005EEC0F /* Info.plist */; };
 		18BF093320CD341F005EEC0F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BF093220CD341F005EEC0F /* Info.plist */; };
 		18BF093520CD3435005EEC0F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BF093420CD3435005EEC0F /* Info.plist */; };
+		18BF09DA20CE2301005EEC0F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E820CCD6FF005EEC0F /* Reachability.swift */; };
+		18BF09DB20CE2302005EEC0F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BF08E820CCD6FF005EEC0F /* Reachability.swift */; };
+		18BF09E020CE6E74005EEC0F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18BF093020CD33BA005EEC0F /* Info.plist */; };
 		8C229E0CBA44001A9B9097B5 /* Pods_TestAssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6950419A5433D1672788A47F /* Pods_TestAssessmentUITests.framework */; };
 		A5D6E1A7C1DC79C01C2F418E /* Pods_TestAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FCE1289982ACCDA5B54244 /* Pods_TestAssessment.framework */; };
 		C895B237853DEDB521633E80 /* Pods_TestAssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E943DD3DCA592FD9935E7F1 /* Pods_TestAssessmentTests.framework */; };
@@ -355,9 +357,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BF09E020CE6E74005EEC0F /* Info.plist in Resources */,
 				18BF08B720CC1F6E005EEC0F /* LaunchScreen.storyboard in Resources */,
 				18BF08B420CC1F6E005EEC0F /* Assets.xcassets in Resources */,
-				18BF093120CD33BA005EEC0F /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BF09DB20CE2302005EEC0F /* Reachability.swift in Sources */,
 				18BF08C220CC1F6E005EEC0F /* TestAssessmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BF09DA20CE2301005EEC0F /* Reachability.swift in Sources */,
 				18BF08CD20CC1F6E005EEC0F /* TestAssessmentUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
