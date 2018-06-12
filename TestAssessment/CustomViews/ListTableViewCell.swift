@@ -44,6 +44,9 @@ class ListTableViewCell: UITableViewCell {
     contentView.addSubview(descriptionLabel)
     self.setNeedsUpdateConstraints()
   }
+  override func prepareForReuse() {
+    self.imgView.image = nil
+  }
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
