@@ -19,7 +19,6 @@
 		184D783420D8B8CF004CEA00 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D782520D8B8CF004CEA00 /* Reachability.swift */; };
 		184D783520D8B8CF004CEA00 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D782720D8B8CF004CEA00 /* Constants.swift */; };
 		184D783620D8B8CF004CEA00 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D782920D8B8CF004CEA00 /* ListTableViewController.swift */; };
-		184D783720D8B8CF004CEA00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D782A20D8B8CF004CEA00 /* ViewController.swift */; };
 		184D783820D8B8CF004CEA00 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D782C20D8B8CF004CEA00 /* ListViewModel.swift */; };
 		184D783920D8BC00004CEA00 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D782520D8B8CF004CEA00 /* Reachability.swift */; };
 		488828176E7F96A80B0B6EE3 /* Pods_TestAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 712D2A02FDC03602F97B7BB1 /* Pods_TestAssessment.framework */; };
@@ -63,7 +62,6 @@
 		184D782520D8B8CF004CEA00 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		184D782720D8B8CF004CEA00 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		184D782920D8B8CF004CEA00 /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
-		184D782A20D8B8CF004CEA00 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		184D782C20D8B8CF004CEA00 /* ListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		26724B1FAC5247576193A280 /* Pods-TestAssessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAssessment.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAssessment/Pods-TestAssessment.release.xcconfig"; sourceTree = "<group>"; };
 		712D2A02FDC03602F97B7BB1 /* Pods_TestAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +154,6 @@
 				184D782320D8B8CF004CEA00 /* SupportingClasses */,
 				184D782620D8B8CF004CEA00 /* Utils */,
 				184D782820D8B8CF004CEA00 /* View */,
-				184D782A20D8B8CF004CEA00 /* ViewController.swift */,
 				184D782B20D8B8CF004CEA00 /* ViewModel */,
 			);
 			path = TestAssessment;
@@ -471,7 +468,6 @@
 				184D783320D8B8CF004CEA00 /* APIClient.swift in Sources */,
 				184D783820D8B8CF004CEA00 /* ListViewModel.swift in Sources */,
 				184D783520D8B8CF004CEA00 /* Constants.swift in Sources */,
-				184D783720D8B8CF004CEA00 /* ViewController.swift in Sources */,
 				184D783620D8B8CF004CEA00 /* ListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
